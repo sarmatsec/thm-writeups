@@ -220,7 +220,7 @@ john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa.hash
 james13            (id_rsa)
 ```
 
-**Passphrase Found: `james13`**
+**Passphrase Found: `[Passphrase]`**
 
 ---
 
@@ -233,7 +233,7 @@ ssh james@[Target-IP] -i id_rsa
 
 **When prompted for passphrase:**
 ```
-Enter passphrase for key 'id_rsa': james13
+Enter passphrase for key 'id_rsa': [Passphrase]
 ```
 
 **Success:**
@@ -413,7 +413,7 @@ thm{d7f3...}
 
 ### 2. Insecure SSH Key Protection
 - **Impact:** Weak passphrase easily cracked via dictionary attack
-- **Password:** `james13` (weak, dictionary-based)
+- **Password:** `[Passphrase]` (weak, dictionary-based)
 - **Severity:** HIGH
 
 ### 3. Unprotected Cronjob (CVE-426)
@@ -465,7 +465,7 @@ thm{d7f3...}
    ↓
 4. SSH private key extracted from admin panel
    ↓
-5. SSH key passphrase cracked (james13)
+5. SSH key passphrase cracked ([Passphrase])
    ↓
 6. SSH login as james user
    ↓
