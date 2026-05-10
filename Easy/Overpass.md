@@ -74,7 +74,7 @@ gobuster dir \
 [Login Form]
 ```
 
-**HTML Structure (from screenshot):**
+**HTML Structure:**
 ```html
 <!DOCTYPE html>
 <html>
@@ -83,6 +83,7 @@ gobuster dir \
   <script src="/login.js"></script>
   <script src="/cookies.js"></script>
 </head>
+...
 ```
 
 **Critical Observation:** 
