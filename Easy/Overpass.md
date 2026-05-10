@@ -102,6 +102,27 @@ Also, we really need to talk about this 'Military Grade' encryption. - Paradox"
 
 ### 1.4) Cookie-Based Authentication Bypass
 
+**Retrieved login.js source:**
+
+```javascript
+async function login() {
+    const usernameBox = document.querySelector("#username");
+    const passwordBox = document.querySelector("#password");
+    const loginStatus = document.querySelector("#loginStatus");
+    loginStatus.textContent = ""
+    const creds = { username: usernameBox.value, password: passwordBox.value }
+    const response = await postData("/api/login", creds)
+    const statusOrCookie = await response.text()
+    if (statusOrCookie === "Incorrect credentials") {
+        loginStatus.textContent = "Incorrect Credentials"
+        passwordBox.value=""
+    } else {
+        Cookies.set("SessionToken",statusOrCookie)
+        window.location = "/admin"
+    }
+}
+```
+
 **Vulnerability:** The page checks for a `SessionToken` cookie in the browser. Setting any value triggers admin access.
 
 **Exploitation Steps:**
