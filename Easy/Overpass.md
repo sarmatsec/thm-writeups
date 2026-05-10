@@ -137,10 +137,7 @@ Cookies.set("SessionToken", "bypass");
 **Admin Panel Displays:**
 
 ```
-Administrator Credentials:
-
-Username: james
-
+...
 Private SSH Key:
 -----BEGIN RSA PRIVATE KEY-----
 Proc-Type: 4,ENCRYPTED
@@ -171,6 +168,7 @@ ylqilOgj4+yiS813kNTjCJOwKRsXg2jKbnRa8b7dSRz7aDZVLpJnEy9bhn6a7WtS
 +hL1kHlTtJZU8Zj2Y2Y3hd6yRNJcIgCDrmLbn9C5M0d7g0h2BlFaJIZOYDS6J6Yk
 2cWk/Mln7+OhAApAvDBKVM7/LGR9/sVPceEos6HTfBXbmsiV+eoFzUtujtymv8U7
 -----END RSA PRIVATE KEY-----
+...
 ```
 
 **Key Details:**
