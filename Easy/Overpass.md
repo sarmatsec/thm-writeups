@@ -217,7 +217,7 @@ john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa.hash
 
 **Result:**
 ```
-james13            (id_rsa)
+[Passphrase]            (id_rsa)
 ```
 
 **Passphrase Found: `[Passphrase]`**
