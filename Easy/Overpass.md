@@ -406,7 +406,7 @@ thm{d7f3...}
 
 ## 🔐 Vulnerabilities Exploited
 
-### 1. Client-Side Authentication (CWE-602)
+### 1. Client-Side Authentication (CVE-602)
 - **Impact:** Unauthenticated access to admin panel
 - **Method:** Cookie manipulation via browser console
 - **Severity:** CRITICAL
@@ -416,7 +416,7 @@ thm{d7f3...}
 - **Password:** `james13` (weak, dictionary-based)
 - **Severity:** HIGH
 
-### 3. Unprotected Cronjob (CWE-426)
+### 3. Unprotected Cronjob (CVE-426)
 - **Impact:** Remote code execution as root
 - **Vectors:** HTTP (no encryption), no signature verification, DNS-based hostname
 - **Severity:** CRITICAL
