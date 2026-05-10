@@ -67,18 +67,10 @@ gobuster dir \
 
 ### 1.3) Admin Panel Analysis
 
-**URL:** `http://10.114.129.64/admin.html`
+**URL:** `http://[Target-IP]/admin.html`
 
 **Page Content:**
 ```
-Welcome to the Overpass Administrator area
-A secure password manager with support for Windows, Linux, macOS and more
-
-"Since you keep forgetting your password, James, I've set up SSH keys for you.
-
-If you forget the password for this, crack it yourself. I'm tired of fixing stuff for you.
-Also, we really need to talk about this 'Military Grade' encryption. - Paradox"
-
 [Login Form]
 ```
 
