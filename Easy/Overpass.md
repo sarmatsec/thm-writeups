@@ -355,9 +355,6 @@ listening on [any] 4444 ...
 **Wait for cronjob to execute (within 5 minutes):**
 
 ```bash
-# Listener output:
-connect to [Target-IP] from overpass-prod-01 [10.114.129.64] 12345
-
 # Verify root access:
 whoami
 # root
